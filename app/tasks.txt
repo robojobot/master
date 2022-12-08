@@ -1,0 +1,4 @@
+1. taking user answer from given options
+2. upload file
+3. save users chat history
+4. get request status

@@ -1,0 +1,38 @@
+org: jobot
+app: robojobotapp
+
+
+service: robohrjobotserverless
+
+provider:
+
+  name: aws
+
+  runtime: nodejs18.x
+
+  region: eu-west-1
+
+resources:
+  Resources:
+    robobucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: robojobot-bucket
+
+
+functions:
+
+  shortbot:
+
+    handler: app/bot.roboJobot
+    environment:
+      BUCKET: robojobot-bucket
+    events:
+
+      - http:
+
+          path: robohrjobotserverless
+
+          method: post
+
+          cors: true
